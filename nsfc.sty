@@ -1,0 +1,78 @@
+% -------------------------------------------------
+% Modified from latex template of IEEE CVPR
+% -------------------------------------------------
+
+\RequirePackage{enumitem}
+\setenumerate[1]{itemsep=0pt,parsep=0pt,topsep=5pt}
+\setitemize[1]{itemsep=0pt,parsep=0pt,topsep=5pt}
+
+\RequirePackage{times}
+\RequirePackage{graphicx}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{overpic}
+\RequirePackage[pagebackref=false,breaklinks=true,colorlinks=true,bookmarks=false,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}
+
+\RequirePackage[a4paper, left = 3.0cm, right = 3.0cm, top = 2.54cm, bottom = 2.54cm]{geometry}
+
+\pagestyle{empty}
+\thispagestyle{empty}
+
+\newcommand{\nsfClr}[1]{\textcolor[rgb]{0.0,0.44,0.753}{#1}}
+\newcommand{\alert}[1]{\nsfClr{\emph{#1}}}
+\newcommand{\ContentDes}[1]{
+   \setcounter{section}{0}
+   {\large \bf {\alert{#1}} }% %{\vspace*{12pt} \NsfcNote{#2} }%
+}
+\setlength{\parskip}{0.5\baselineskip}
+
+
+\def\@maketitle{ %\newpage \null \vskip .01in
+   \begin{center} {\LARGE\bf\@title\par} \end{center}
+}
+
+
+\newcommand{\NsfcSection}[3]{{\large
+  \setcounter{section}{#1}
+  \setcounter{subsection}{0}
+  \indent \nsfClr{#1. }{\bfseries{\alert{#2}}}{\alert{#3}}%
+}}
+
+
+\renewcommand\refname{
+  \textcolor{black}{\hskip 2pt  \emph{\large 参考文献:}}
+}
+
+\def\cvprsubsection{\@startsection {subsection}{2}{\z@}
+   {11pt plus 2pt minus 2pt}{6pt} {\bf}}
+\def\cvprssubsect#1{\cvprsubsection*{\large #1}}
+\def\cvprsubsect#1{\cvprsubsection{\hskip -1em.~#1}}
+\def\subsection{\@ifstar\cvprssubsect\cvprsubsect}
+
+
+%%% Make figure placement a little more predictable.
+% We trust the user to move figures if this results
+% in ugliness.
+% Minimize bad page breaks at figures
+\renewcommand{\textfraction}{0.01}
+\renewcommand{\floatpagefraction}{0.99}
+\renewcommand{\topfraction}{0.99}
+\renewcommand{\bottomfraction}{0.99}
+\renewcommand{\dblfloatpagefraction}{0.99}
+\renewcommand{\dbltopfraction}{0.99}
+\setcounter{totalnumber}{99}
+\setcounter{topnumber}{99}
+\setcounter{bottomnumber}{99}
+
+
+% ---------------------------------------------------------------
+
+
+\newcommand{\figref}[1]{图\ref{#1}}
+\newcommand{\tabref}[1]{表\ref{#1}}
+\newcommand{\equref}[1]{式\ref{#1}}
+\newcommand{\secref}[1]{第\ref{#1}节}
+
+\RequirePackage{silence}
+\WarningFilter{latexfont}{Font shape `}
+\WarningFilter{latexfont}{Some font shapes were not available,}
