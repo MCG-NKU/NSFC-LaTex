@@ -11,6 +11,7 @@
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage{overpic}
+\RequirePackage{xcolor}
 \RequirePackage[pagebackref=false,breaklinks=true,colorlinks=true,bookmarks=false,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}
 
 \RequirePackage[a4paper, left = 3.0cm, right = 3.0cm, top = 2.54cm, bottom = 2.54cm]{geometry}
@@ -18,30 +19,51 @@
 \pagestyle{empty}
 \thispagestyle{empty}
 
+\definecolor{MSBlue}{rgb}{0.0,0.44,0.753}
+\newcommand\nsfctitlesize{\fontsize{16pt}{16pt}\selectfont}
+\newcommand\nsfcheadsize{\fontsize{14pt}{14pt}\selectfont}
+
 \newcommand{\nsfClr}[1]{\textcolor[rgb]{0.0,0.44,0.753}{#1}}
 \newcommand{\alert}[1]{\nsfClr{\emph{#1}}}
 \newcommand{\ContentDes}[1]{
    \setcounter{section}{0}
-   {\large \bf {\alert{#1}} }% %{\vspace*{12pt} \NsfcNote{#2} }%
+   {\vspace*{12pt}} \noindent {\kaishu \nsfcheadsize \bfseries{{\alert{#1}}} }%
 }
-\setlength{\parskip}{0.5\baselineskip}
+%\setlength{\parskip}{0.5\baselineskip}
 
 
 \def\@maketitle{ %\newpage \null \vskip .01in
-   \begin{center} {\LARGE\bf\@title\par} \end{center}
+   \begin{center} {\nsfctitlesize\kaishu\bfseries{\@title}\par} \end{center}
 }
 
 
-\newcommand{\NsfcSection}[3]{{\large
+%\RequirePackage{titlesec}
+%\titleformat*{\section}{\bfseries \large \color{MSBlue}} %\itshape 
+%\newcommand{\NsfcSectionDes}[1]{\vspace{-15pt} \alert{\large （#1）；}}
+
+%\section{项目的立项依据}
+%\NsfcSectionDes{
+%研究意义、国内外研究现状及发展动态分析，需结合科学研究发展趋势来论述科学意义；
+%或结合国民经济和社会发展中迫切需要解决的关键科技问题来论述其应用前景。
+%附主要参考文献目录}
+
+
+\newcommand{\NsfcSection}[3]{{\nsfcheadsize
   \setcounter{section}{#1}
   \setcounter{subsection}{0}
-  \indent \nsfClr{#1. }{\bfseries{\alert{#2}}}{\alert{#3}}%
+  {\vspace*{12pt}} \noindent \nsfClr{#1. }{\kaishu \nsfcheadsize \bfseries{\alert{#2}}}{\kaishu \nsfcheadsize \alert{#3}}%
 }}
 
 
 \renewcommand\refname{
   \textcolor{black}{\hskip 2pt  \emph{\large 参考文献:}}
 }
+
+
+\RequirePackage{cite}
+\bibliographystyle{unsrt}
+
+\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
 
 \def\cvprsubsection{\@startsection {subsection}{2}{\z@}
    {11pt plus 2pt minus 2pt}{6pt} {\bf}}
@@ -72,6 +94,10 @@
 \newcommand{\tabref}[1]{表\ref{#1}}
 \newcommand{\equref}[1]{式\ref{#1}}
 \newcommand{\secref}[1]{第\ref{#1}节}
+
+
+
+
 
 \RequirePackage{silence}
 \WarningFilter{latexfont}{Font shape `}
