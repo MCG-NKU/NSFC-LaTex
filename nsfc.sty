@@ -61,7 +61,8 @@
 
 
 \RequirePackage{cite}
-% \bibliographystyle{unsrt}
+\RequirePackage{natbib}
+\setlength{\bibsep}{0pt plus 0.3ex}
 
 \newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
 
@@ -74,6 +75,9 @@
 
 \linespread{1.5}
 
+\RequirePackage{caption}
+\captionsetup[table]{font={stretch=1.0}}
+\captionsetup[figure]{font={stretch=1.0}}
 
 %%% Make figure placement a little more predictable.
 % We trust the user to move figures if this results
