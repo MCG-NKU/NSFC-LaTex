@@ -2,6 +2,9 @@
 % Modified from latex template of IEEE CVPR
 % -------------------------------------------------
 
+\PassOptionsToPackage{quiet}{fontspec}
+\RequirePackage[UTF8]{ctex}
+
 \RequirePackage{enumitem}
 \setenumerate[1]{itemsep=0pt,parsep=0pt,topsep=5pt}
 \setitemize[1]{itemsep=0pt,parsep=0pt,topsep=5pt}
@@ -11,12 +14,15 @@
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage{overpic}
+\RequirePackage{xcolor}
 \RequirePackage[pagebackref=false,breaklinks=true,colorlinks=true,bookmarks=false,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}
 
-\RequirePackage[a4paper, left = 3.0cm, right = 3.0cm, top = 2.54cm, bottom = 2.54cm]{geometry}
+\RequirePackage[a4paper, left = 2.7cm, right = 2.7cm, top = 2.54cm, bottom = 2.54cm]{geometry}
 
 \pagestyle{empty}
 \thispagestyle{empty}
+
+\definecolor{MSBlue}{rgb}{0.0,0.44,0.753}
 
 \newcommand{\nsfClr}[1]{\textcolor[rgb]{0.0,0.44,0.753}{#1}}
 \newcommand{\alert}[1]{\nsfClr{\emph{#1}}}
@@ -30,6 +36,12 @@
 \def\@maketitle{ %\newpage \null \vskip .01in
    \begin{center} {\LARGE\bf\@title\par} \end{center}
 }
+
+
+
+\usepackage{silence}
+\hbadness=10000 \vbadness=10000 \vfuzz=30pt \hfuzz=30pt
+\WarningFilter{latex}{Font shape}
 
 
 \newcommand{\NsfcSection}[3]{{\large
